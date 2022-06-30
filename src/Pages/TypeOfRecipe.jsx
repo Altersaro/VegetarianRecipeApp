@@ -4,6 +4,8 @@ import glutenFree from '../Image/gluten-free.png'
 import {Link, useParams} from 'react-router-dom'
 import axios from 'axios';
 import {Grid, Card} from '../Style/Card.style'
+import {API_KEY} from'../key'
+
 
 
 function TypeOfRecipe() {
@@ -15,7 +17,7 @@ function TypeOfRecipe() {
 
 
   async function getTypeOfRecipe(type){
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&${type}&addRecipeInformation=true&sort=random`)
+      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&diet=vegetarian&${type}&addRecipeInformation=true&sort=random`)
       setTypeOfRecipe(res.data.results);
   }
 

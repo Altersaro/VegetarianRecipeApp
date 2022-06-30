@@ -4,6 +4,8 @@ import axios from 'axios'
 import {DetailsPage} from '../Style/DetailsPage.style'
 import vegan from '../Image/vegan.png'
 import glutenFree from '../Image/gluten-free.png'
+import {API_KEY} from'../key'
+
 
 function Recipe() {
 
@@ -13,7 +15,7 @@ function Recipe() {
   let params = useParams()
 
   async function getRecipeDetails(name){
-    const res = await axios.get(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${process.env.REACT_APP_KEY}`)
+    const res = await axios.get(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${API_KEY}`)
     setRecipeDetails(res.data)
     console.log(res.data)
 

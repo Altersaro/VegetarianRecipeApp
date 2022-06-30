@@ -4,7 +4,7 @@ import vegan from '../Image/vegan.png'
 import glutenFree from '../Image/gluten-free.png'
 import {Link} from 'react-router-dom'
 import {Grid, Card} from '../Style/Card.style'
-
+import {API_KEY} from'../key'
 
 
 
@@ -12,7 +12,6 @@ import {Grid, Card} from '../Style/Card.style'
 function Popular() {
 
   const[popular, setPopular] = React.useState([])
-
 
  
   React.useEffect(()=>{
@@ -22,7 +21,7 @@ function Popular() {
 
     async function getRecipe(){
 
-        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=6&diet=vegetarian&apiKey=${process.env.REACT_APP_KEY}&sort=random&addRecipeInformation=true&type=mainCourse`)
+        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=6&diet=vegetarian&apiKey=${API_KEY}&sort=random&addRecipeInformation=true&type=mainCourse`)
         setPopular(res.data.results)
   
       }

@@ -6,6 +6,8 @@ import vegan from '../Image/vegan.png'
 import glutenFree from '../Image/gluten-free.png'
 import {Link} from 'react-router-dom'
 import {Card} from '../Style/Card.style'
+import {API_KEY} from'../key'
+
 
 
 function VeggieDessert() {
@@ -18,7 +20,7 @@ function VeggieDessert() {
 
 
     async function getRecipe(){
-        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=9&diet=vegetarian&apiKey=${process.env.REACT_APP_KEY}&sort=random&addRecipeInformation=true&type=dessert`)
+        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=9&diet=vegetarian&apiKey=${API_KEY}&sort=random&addRecipeInformation=true&type=dessert`)
         setVeggieDessert(res.data.results)  
     }
 
