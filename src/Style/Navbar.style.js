@@ -14,6 +14,17 @@ border-radius: 2rem;
     width:100px;
     border-radius: 2rem;
  }
+
+ @media(max-width:658px){
+    .logo{
+        width: 64px;
+    }
+ }
+
+
+
+
+
 `
 
 
@@ -30,6 +41,7 @@ cursor:pointer;
 padding: 10px;
 background: #eefff5;
 box-shadow: 2px 2px 2px 2px #f57c7c;
+
 
 img{
     width: 64px;
@@ -55,5 +67,14 @@ h4{
     
 }
 
+
+
+@media(max-width: 658px){
+    padding: 5px;
+    flex-direction: row;
+
+
+    
+}
 
 `

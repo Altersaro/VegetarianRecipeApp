@@ -7,6 +7,18 @@ import legumes from '../Image/legumes.png';
 
 
 function Navbar() {
+
+
+    const [windowSize, setWindowSize] = React.useState(window.innerWidth)
+
+    function resizeListener(){
+        setWindowSize(window.innerWidth)
+    }
+    React.useEffect(()=>{
+        window.addEventListener('resize', resizeListener);
+    },);
+    
+   
   return (
     <List>
         <SLink to={'/'}>
@@ -14,15 +26,15 @@ function Navbar() {
         </SLink>
         <SLink to={'/TypeOfRecipe/maxReadyTime=15'}>
             <img src={clock} alt='clock_icon'/>
-            <h4>Quick recipes</h4>
+           {windowSize > 658 ? <h4>Quick recipes</h4>:''}
         </SLink>
         <SLink to={'/TypeOfRecipe/intolerances=gluten'}>
             <img src={glutenFree} alt='glutenFree_icon'/>
-            <h4>Gluten Free Recipes</h4>
+            {windowSize > 658 ? <h4>Gluten Free Recipes</h4>:''}
         </SLink>
         <SLink to={'/TypeOfRecipe/maxProtein=100'}>
             <img src={legumes} alt='legumes_icon'/>
-            <h4>Protein Recipes</h4>
+            {windowSize > 658 ? <h4>Protein Recipes</h4>:''}
         </SLink>
     </List>
   )

@@ -11,7 +11,6 @@ import {Card} from '../Style/Card.style'
 function VeggieDessert() {
   const[veggieDessert, setVeggieDessert] = React.useState([])
 
-  const API_KEY = 'c41d0c9866ad4d0b82d54842a326c2ed'
  
   React.useEffect(()=>{
     getRecipe()
@@ -19,22 +18,8 @@ function VeggieDessert() {
 
 
     async function getRecipe(){
-
-      const check = localStorage.getItem('veggieDessert');
-
-      if(check){
-        setVeggieDessert(JSON.parse(check))
-      }else{
-        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=9&diet=vegetarian&apiKey=${API_KEY}&sort=random&addRecipeInformation=true&type=dessert`)
-        localStorage.setItem('veggieDessert', JSON.stringify(res.data.results));  
-        setVeggieDessert(res.data.results)
-        console.log(res.data.results)
-      }
-
-
-
-
-    
+        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=9&diet=vegetarian&apiKey=${process.env.REACT_APP_KEY}&sort=random&addRecipeInformation=true&type=dessert`)
+        setVeggieDessert(res.data.results)  
     }
 
 
@@ -59,7 +44,7 @@ function VeggieDessert() {
                   <SplideSlide  key={recipe.id}>
                   <Card>
                     <Link to={'/recipe/'+ recipe.id}>
-                      <img src={recipe.image} alt={recipe.title}/>
+                      <img src={recipe.image} alt={recipe.title} className='veggieImage'/>
                       {recipe.vegan ? <img src={vegan} className='icon veganIcon' alt='veganIcon'/> : ''}
                       {recipe.glutenFree ? <img src={glutenFree} className='icon glutenFreeIcon' alt='glutenFree_icon'/> : ''}
                       <p>{recipe.title}</p>

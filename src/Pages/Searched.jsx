@@ -8,14 +8,13 @@ import {Grid, Card} from '../Style/Card.style'
 
 function Searched() {
 
-    const API_KEY = 'c41d0c9866ad4d0b82d54842a326c2ed'
 
     const [searchedRecipes, setSearchedRecipes] =React.useState([])
     let params = useParams()
 
 
     async function getSearchedRecipes(name){
-          const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&diet=vegetarian&query=${name}&addRecipeInformation=true&sort=random`)
+          const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&query=${name}&addRecipeInformation=true&sort=random`)
           setSearchedRecipes(res.data.results);
 }
 

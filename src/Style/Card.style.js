@@ -9,6 +9,12 @@ grid-gap:3rem;
 @media(max-width:768px){
   width: 80%;
   margin: 0 auto;
+  grid-gap: 2rem;
+
+}
+
+@media(max-width:400px){
+  width: 100%;
 }
 
 
@@ -25,6 +31,10 @@ grid-gap:3rem;
  :hover{
   transform: scale(0.9)
 }
+ 
+  .veggieImage{
+    max-height: 230px;
+  }
 
  .image{
   border-radius: 2rem;
@@ -72,6 +82,11 @@ grid-gap:3rem;
  .glutenFreeIcon{
   top:10px;
   right:10px;
+ }
+
+
+ @media(max-width:658px){
+  width: 100%;
  }
 
 `

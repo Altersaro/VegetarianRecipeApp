@@ -12,11 +12,8 @@ function Recipe() {
   })
   let params = useParams()
 
-  const API_KEY = 'c41d0c9866ad4d0b82d54842a326c2ed'
-
-
   async function getRecipeDetails(name){
-    const res = await axios.get(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${API_KEY}`)
+    const res = await axios.get(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${process.env.REACT_APP_KEY}`)
     setRecipeDetails(res.data)
     console.log(res.data)
 

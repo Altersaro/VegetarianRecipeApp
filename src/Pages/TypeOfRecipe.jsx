@@ -7,9 +7,6 @@ import {Grid, Card} from '../Style/Card.style'
 
 
 function TypeOfRecipe() {
-
-  const API_KEY = 'c41d0c9866ad4d0b82d54842a326c2ed'
-
   
   
   const[typeOfRecipe, setTypeOfRecipe] = React.useState([])
@@ -18,16 +15,8 @@ function TypeOfRecipe() {
 
 
   async function getTypeOfRecipe(type){
-
-    const check = localStorage.getItem('TypeOfRecipe')
-
-    if(check){
-      setTypeOfRecipe(JSON.parse(check))
-    }else{
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&diet=vegetarian&${type}&addRecipeInformation=true&sort=random`)
-      localStorage.setItem('TypeOfRecipe', JSON.stringify(res.data.results))
+      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&${type}&addRecipeInformation=true&sort=random`)
       setTypeOfRecipe(res.data.results);
-    }
   }
 
   React.useEffect(()=>{

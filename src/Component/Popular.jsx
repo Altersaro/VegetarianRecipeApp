@@ -13,7 +13,7 @@ function Popular() {
 
   const[popular, setPopular] = React.useState([])
 
-  const API_KEY = 'c41d0c9866ad4d0b82d54842a326c2ed'
+
  
   React.useEffect(()=>{
     getRecipe()
@@ -22,23 +22,12 @@ function Popular() {
 
     async function getRecipe(){
 
-      const check = localStorage.getItem('popular');
-
-      if(check){
-        setPopular(JSON.parse(check))
-      }else{
-        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=6&diet=vegetarian&apiKey=${API_KEY}&sort=random&addRecipeInformation=true&type=mainCourse`)
-        localStorage.setItem('popular', JSON.stringify(res.data.results));
+        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=6&diet=vegetarian&apiKey=${process.env.REACT_APP_KEY}&sort=random&addRecipeInformation=true&type=mainCourse`)
         setPopular(res.data.results)
-        console.log(res.data.results)
+  
       }
 
-
-
       
-
-    }
-
 
   return (
     <div>

@@ -20,6 +20,7 @@ h3{
 }
 
 
+
 @media screen and (max-width: 992px){
     body{
         margin:0% 5%;
@@ -27,9 +28,13 @@ h3{
     
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width:658px){
     h3{
         text-align: center;
+    }
+
+    body{
+        margin: 0;
     }
 
     
