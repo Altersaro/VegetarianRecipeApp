@@ -1,19 +1,11 @@
-## Vegetaria Recipe App
+## Vegetarian Recipe App
+
+![My Image](Screen.png)
 
 
 
 
 
-
-
-
-div id="top"></div>
-<br />
-<div align="center">
-  </a>
-  <p align="center">
-  </p>
-</div>
 
 
 
@@ -35,7 +27,7 @@ div id="top"></div>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-News app allows you to access all the news of the tech world in seconds.
+Vegetarian recipe site where you can search for new recipes and experiment with new dishes. Enjoy!
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -43,8 +35,11 @@ News app allows you to access all the news of the tech world in seconds.
 
 
 ### Built With
-* [Bootstrap](https://getbootstrap.com)
+* [React](https://it.reactjs.org/)
 * [JavaScript](https://www.javascript.com/)
+* [Axios](https://axios-http.com/)
+* [React-Router](https://reactrouter.com/)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
