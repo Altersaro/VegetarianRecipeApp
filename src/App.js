@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from './Component/Navbar';
-import Pages from './Pages/Pages';
+import Navbar from './navbar/Navbar';
+import Pages from './pages/Pages';
 import{ BrowserRouter } from 'react-router-dom'
-import Search from './Component/Search';
-import ScrollButton from './Component/ScrollButton';
+import Search from './search/Search';
+import ScrollButton from './scrollButton/ScrollButton';
 
 function App() {
 

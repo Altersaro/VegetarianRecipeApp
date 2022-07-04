@@ -1,5 +1,5 @@
-import VeggieDessert from "../Component/VeggieDessert";
-import Popular from "../Component/Popular";
+import VeggieDessert from "../component/VeggieDessert";
+import Popular from "../component/Popular";
 import {motion} from 'framer-motion';
 
 

@@ -3,7 +3,7 @@ import Home from './Home'
 import{ Route, Routes, useLocation }from 'react-router-dom'
 import TypeOfRecipe from './TypeOfRecipe'
 import Searched from './Searched'
-import Recipe from './Recipe'
+import Recipe from '../detailsPage/Recipe'
 import{AnimatePresence} from 'framer-motion'
 
 
