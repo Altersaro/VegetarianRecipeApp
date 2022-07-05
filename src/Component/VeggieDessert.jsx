@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import {Link} from 'react-router-dom'
-import {Card} from '../style/Card.style'
+import {Card} from '../Style/Card.style'
 import {API_KEY} from'../key'
 
 

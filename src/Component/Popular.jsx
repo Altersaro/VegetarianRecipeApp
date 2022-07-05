@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import {Grid, Card} from '../style/Card.style'
+import {Grid, Card} from '../Style/Card.style'
 import {API_KEY} from'../key'
 
 
