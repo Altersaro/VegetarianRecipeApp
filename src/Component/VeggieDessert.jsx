@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import {Link} from 'react-router-dom'
-import {Card} from '../Style/Card.style'
+import {Card, glutenFreeClasses, veganClasses} from '../Style/Card.style'
 import {API_KEY} from'../key'
 
 
@@ -45,8 +45,8 @@ function VeggieDessert() {
                   <Card>
                     <Link to={'/recipe/'+ recipe.id}>
                       <img src={recipe.image} alt={recipe.title} className='veggieImage'/>
-                      {recipe.vegan ? <img src='/vegan.png' className='icon veganIcon' alt='veganIcon'/> : ''}
-                      {recipe.glutenFree ? <img src='/gluten-free.png' className='icon glutenFreeIcon' alt='glutenFree_icon'/> : ''}
+                      {recipe.vegan ? <img src='/vegan.png' className={veganClasses} alt='veganIcon'/> : ''}
+                      {recipe.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
                       <p>{recipe.title}</p>
                     </Link>
                   </Card>

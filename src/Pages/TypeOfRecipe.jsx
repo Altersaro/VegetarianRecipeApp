@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, useParams} from 'react-router-dom'
 import axios from 'axios';
-import {Grid, Card} from '../Style/Card.style'
+import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
 import {API_KEY} from'../key'
 
 
@@ -35,8 +35,8 @@ function TypeOfRecipe() {
         <Link to={'/recipe/'+elem.id} key={elem.id} >
           <Card >
             <img src={elem.image} alt={elem.title} className='image'/>
-            {elem.vegan ? <img src='/vegan.png' className='icon veganIcon' alt='veganIcon'/> : ''}
-            {elem.glutenFree ? <img src='/gluten-free.png' className='icon glutenFreeIcon' alt='glutenFree_icon'/> : ''}
+            {elem.vegan ? <img src='/vegan.png' className={veganClasses} alt='veganIcon'/> : ''}
+            {elem.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
             <p>{elem.title}</p>
            </Card>
         </Link>

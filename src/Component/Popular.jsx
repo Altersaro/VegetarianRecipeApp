@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import {Grid, Card} from '../Style/Card.style'
+import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
 import {API_KEY} from'../key'
 
 
@@ -35,8 +35,8 @@ function Popular() {
                   <Card key={recipe.id}>
                     <Link to={'/recipe/'+recipe.id}>
                       <img src={recipe.image} alt={recipe.title} className='image'/>
-                      {recipe.vegan ? <img src='/vegan.png' className=' icon veganIcon' alt='vegan_icon'/> : ''}
-                      {recipe.glutenFree ? <img src='/gluten-free.png' className='icon glutenFreeIcon' alt='glutenFree_icon'/> : ''}
+                      {recipe.vegan ? <img src='/vegan.png' className={veganClasses} alt='vegan_icon'/> : ''}
+                      {recipe.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
                       <p>{recipe.title}</p>
                     </Link>
                   </Card>

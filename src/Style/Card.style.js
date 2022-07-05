@@ -1,5 +1,11 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import classNames from "classnames";
+
+
+export const veganClasses = classNames('icon', 'veganIcon');
+export const glutenFreeClasses = classNames('icon', 'glutenFreeIcon');
+
 
 export const Grid = styled(motion.div)`
 display:grid;
@@ -90,3 +96,4 @@ grid-gap:3rem;
  }
 
 `
+
