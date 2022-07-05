@@ -3,7 +3,6 @@ import axios from 'axios';
 import{Link} from 'react-router-dom'
 import {useParams} from 'react-router-dom';
 import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
-import {API_KEY} from'../key'
 
 
 function Searched() {
@@ -14,7 +13,7 @@ function Searched() {
 
 
     async function getSearchedRecipes(name){
-          const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&diet=vegetarian&query=${name}&addRecipeInformation=true&sort=random`)
+          const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&query=${name}&addRecipeInformation=true&sort=random`)
           setSearchedRecipes(res.data.results);
 }
 

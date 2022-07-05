@@ -2,7 +2,6 @@ import React from 'react'
 import {Link, useParams} from 'react-router-dom'
 import axios from 'axios';
 import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
-import {API_KEY} from'../key'
 
 
 
@@ -15,7 +14,7 @@ function TypeOfRecipe() {
 
 
   async function getTypeOfRecipe(type){
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&diet=vegetarian&${type}&addRecipeInformation=true&sort=random`)
+      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&${type}&addRecipeInformation=true&sort=random`)
       setTypeOfRecipe(res.data.results);
   }
 

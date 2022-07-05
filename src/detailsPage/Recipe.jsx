@@ -2,7 +2,7 @@ import React from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import {DetailsPage} from './DetailsPage.style'
-import {API_KEY} from'../key'
+import { glutenFreeClasses, veganClasses } from '../Style/Card.style'
 
 
 function Recipe() {
@@ -13,7 +13,7 @@ function Recipe() {
   let params = useParams()
 
   async function getRecipeDetails(name){
-    const res = await axios.get(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${API_KEY}`)
+    const res = await axios.get(`https://api.spoonacular.com/recipes/${name}/information?apiKey=${process.env.REACT_APP_KEY}`)
     setRecipeDetails(res.data)
     console.log(res.data)
 
@@ -31,8 +31,8 @@ function Recipe() {
         <div className='img-grid'>
           <img src={recipeDetails.image} alt={recipeDetails.title} className='img'/>
           <div className='icon-container'>
-            {recipeDetails.vegan ? <img src='/vegan.png' className=' icon veganIcon' alt='vegan_icon'/> : ''}
-            {recipeDetails.glutenFree ? <img src='/gluten-free.png' className='icon glutenFreeIcon' alt='glutenFree_icon'/> : ''}
+            {recipeDetails.vegan ? <img src='/vegan.png' className={veganClasses} alt='vegan_icon'/> : ''}
+            {recipeDetails.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
           </div>
         </div>
 
