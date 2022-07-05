@@ -19,7 +19,7 @@ function Popular() {
 
     async function getRecipe(){
 
-        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=6&diet=vegetarian&apiKey=${API_KEY}&sort=random&addRecipeInformation=true&type=mainCourse`)
+        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=6&diet=vegetarian&apiKey=${process.env.REACT_APP_KEY}&sort=random&addRecipeInformation=true&type=mainCourse`)
         setPopular(res.data.results)
   
       }
