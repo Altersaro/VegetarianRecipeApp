@@ -6,8 +6,8 @@ import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
 
 
 function TypeOfRecipe() {
-  
-  
+
+
   const[typeOfRecipe, setTypeOfRecipe] = React.useState([])
   let params = useParams()
 

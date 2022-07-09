@@ -1,25 +1,18 @@
 import React from 'react'
-import axios from 'axios'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import {Link} from 'react-router-dom'
 import {Card, glutenFreeClasses, veganClasses} from '../Style/Card.style'
+import { ClientApiContext } from '../ClientApi';
 
 
 
 function VeggieDessert() {
-  const[veggieDessert, setVeggieDessert] = React.useState([])
 
- 
-  React.useEffect(()=>{
-    getRecipe()
-  },[])
+  const {veggieDessert} = React.useContext(ClientApiContext)
 
 
-    async function getRecipe(){
-        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=9&diet=vegetarian&apiKey=${process.env.REACT_APP_KEY}&sort=random&addRecipeInformation=true&type=dessert`)
-        setVeggieDessert(res.data.results)  
-    }
+
 
 
   return (

@@ -5,11 +5,13 @@ import TypeOfRecipe from './TypeOfRecipe'
 import Searched from './Searched'
 import Recipe from '../detailsPage/Recipe'
 import{AnimatePresence} from 'framer-motion'
+import {RecipeProvider} from '../ClientApi'
 
 
 function Pages() {
   const location = useLocation();
   return (
+  <RecipeProvider>
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home/>}/>
@@ -18,6 +20,7 @@ function Pages() {
         <Route path='/recipe/:name' element={<Recipe/>}/>
       </Routes>
     </AnimatePresence>
+  </RecipeProvider>
   )
 } 
 

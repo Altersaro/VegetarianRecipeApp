@@ -1,29 +1,16 @@
 import React from 'react'
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
+import { ClientApiContext } from '../ClientApi'
 
 
 
 
 function Popular() {
 
-  const[popular, setPopular] = React.useState([])
-
- 
-  React.useEffect(()=>{
-    getRecipe()
-  },[])
+  const {popular} = React.useContext(ClientApiContext)
 
 
-    async function getRecipe(){
-
-        const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=6&diet=vegetarian&apiKey=${process.env.REACT_APP_KEY}&sort=random&addRecipeInformation=true&type=mainCourse`)
-        setPopular(res.data.results)
-  
-      }
-
-      
 
   return (
     <div>
