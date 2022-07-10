@@ -7,12 +7,17 @@ export const ClientApiContext = React.createContext()
 export const RecipeProvider = (props) =>{
     const[popular, setPopular] = React.useState([])
     const[veggieDessert, setVeggieDessert] = React.useState([])
+    const[typeOfRecipe, setTypeOfRecipe] = React.useState([])
+    const[path, setPath] = React.useState('')
+
+
 
  
     React.useEffect(()=>{
     getRecipe()
     getRecipeDessert()
-  },[])
+    if(path) getTypeOfRecipe()
+  },[path])
 
 
     async function getRecipe(){
@@ -25,6 +30,13 @@ export const RecipeProvider = (props) =>{
         setVeggieDessert(res.data.results)  
     }
 
+    async function getTypeOfRecipe(){
+      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&${path}&addRecipeInformation=true&sort=random`)
+      setTypeOfRecipe(res.data.results);
+  }
+
+
+
 
 
       return(
@@ -32,6 +44,8 @@ export const RecipeProvider = (props) =>{
             value={{
                 popular:popular,
                 veggieDessert:veggieDessert,
+                typeOfRecipe: typeOfRecipe,
+                setPath:setPath,
                 }}>
             {props.children}
         </ClientApiContext.Provider>

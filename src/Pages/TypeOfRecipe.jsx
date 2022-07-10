@@ -1,25 +1,23 @@
 import React from 'react'
 import {Link, useParams} from 'react-router-dom'
-import axios from 'axios';
 import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
+import { ClientApiContext } from '../ClientApi';
 
 
 
 function TypeOfRecipe() {
 
+  
+  
+  const {typeOfRecipe, setPath} = React.useContext(ClientApiContext)
 
-  const[typeOfRecipe, setTypeOfRecipe] = React.useState([])
+  
   let params = useParams()
 
 
 
-  async function getTypeOfRecipe(type){
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&${type}&addRecipeInformation=true&sort=random`)
-      setTypeOfRecipe(res.data.results);
-  }
-
   React.useEffect(()=>{
-    getTypeOfRecipe(params.type)
+    setPath(params.type)
   },[params.type])
 
   return (
