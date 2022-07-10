@@ -16,8 +16,8 @@ export const RecipeProvider = (props) =>{
     React.useEffect(()=>{
     getRecipe()
     getRecipeDessert()
-    if(path) getTypeOfRecipe()
-  },[path])
+    if (path) getTypeOfRecipe()
+  },[path]) //eslint-disable-line react-hooks/exhaustive-deps
 
 
     async function getRecipe(){
