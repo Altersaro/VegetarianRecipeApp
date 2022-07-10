@@ -16,8 +16,12 @@ export const RecipeProvider = (props) =>{
     React.useEffect(()=>{
     getRecipe()
     getRecipeDessert()
-    if (path) getTypeOfRecipe()
-  },[path]) //eslint-disable-line react-hooks/exhaustive-deps
+    async function getTypeOfRecipe(){
+      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&${path}&addRecipeInformation=true&sort=random`)
+      setTypeOfRecipe(res.data.results);
+  }
+  getTypeOfRecipe()
+ },[path]) 
 
 
     async function getRecipe(){
@@ -30,10 +34,7 @@ export const RecipeProvider = (props) =>{
         setVeggieDessert(res.data.results)  
     }
 
-    async function getTypeOfRecipe(){
-      const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&diet=vegetarian&${path}&addRecipeInformation=true&sort=random`)
-      setTypeOfRecipe(res.data.results);
-  }
+
 
 
 
