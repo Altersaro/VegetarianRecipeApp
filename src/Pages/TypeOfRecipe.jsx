@@ -18,7 +18,7 @@ function TypeOfRecipe() {
 
   React.useEffect(()=>{
     setPath(params.type)
-  },[params.type])
+  },[setPath,params.type])
 
   return (
   <Grid
