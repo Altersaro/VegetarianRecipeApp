@@ -2,8 +2,8 @@ import React from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import {DetailsPage} from './DetailsPage.style'
-import { glutenFreeClasses, veganClasses } from '../Style/Card.style'
-
+import VeganIcon from '../Component/VeganIcon'
+import GlutenFreeIcon from '../Component/GlutenFreeIcon'
 
 function Recipe() {
 
@@ -31,8 +31,8 @@ function Recipe() {
         <div className='img-grid'>
           <img src={recipeDetails.image} alt={recipeDetails.title} className='img'/>
           <div className='icon-container'>
-            {recipeDetails.vegan ? <img src='/vegan.png' className={veganClasses} alt='vegan_icon'/> : ''}
-            {recipeDetails.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
+            <VeganIcon vegan={recipeDetails.vegan }/>
+            <GlutenFreeIcon glutenFree={recipeDetails.glutenFree}/>
           </div>
         </div>
 

@@ -2,8 +2,10 @@ import React from 'react'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import {Link} from 'react-router-dom'
-import {Card, glutenFreeClasses, veganClasses} from '../Style/Card.style'
+import {Card} from '../Style/Card.style'
 import { ClientApiContext } from '../ClientApi';
+import VeganIcon from './VeganIcon';
+import GlutenFreeIcon from './GlutenFreeIcon';
 
 
 
@@ -37,8 +39,8 @@ function VeggieDessert() {
                   <Card>
                     <Link to={'/recipe/'+ recipe.id}>
                       <img src={recipe.image} alt={recipe.title} className='veggieImage'/>
-                      {recipe.vegan ? <img src='/vegan.png' className={veganClasses} alt='veganIcon'/> : ''}
-                      {recipe.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
+                      <VeganIcon vegan={recipe.vegan} />
+                      <GlutenFreeIcon glutenFree={recipe.glutenFree}/>
                       <p>{recipe.title}</p>
                     </Link>
                   </Card>

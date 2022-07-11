@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
+import {Grid, Card} from '../Style/Card.style'
 import { ClientApiContext } from '../ClientApi'
+import VeganIcon from './VeganIcon'
+import GlutenFreeIcon from './GlutenFreeIcon'
 
 
 
@@ -21,8 +23,8 @@ function Popular() {
                   <Card key={recipe.id}>
                     <Link to={'/recipe/'+recipe.id}>
                       <img src={recipe.image} alt={recipe.title} className='image'/>
-                      {recipe.vegan ? <img src='/vegan.png' className={veganClasses} alt='vegan_icon'/> : ''}
-                      {recipe.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
+                      <VeganIcon vegan={recipe.vegan} />
+                      <GlutenFreeIcon glutenFree={recipe.glutenFree}/>
                       <p>{recipe.title}</p>
                     </Link>
                   </Card>

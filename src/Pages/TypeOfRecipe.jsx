@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link, useParams} from 'react-router-dom'
-import {Grid, Card, veganClasses, glutenFreeClasses} from '../Style/Card.style'
+import {Grid, Card} from '../Style/Card.style'
 import { ClientApiContext } from '../ClientApi';
+import VeganIcon from '../Component/VeganIcon'
+import GlutenFreeIcon from '../Component/GlutenFreeIcon'
 
 
 
@@ -32,8 +34,8 @@ function TypeOfRecipe() {
         <Link to={'/recipe/'+elem.id} key={elem.id} >
           <Card >
             <img src={elem.image} alt={elem.title} className='image'/>
-            {elem.vegan ? <img src='/vegan.png' className={veganClasses} alt='veganIcon'/> : ''}
-            {elem.glutenFree ? <img src='/gluten-free.png' className={glutenFreeClasses} alt='glutenFree_icon'/> : ''}
+            <VeganIcon vegan={elem.vegan}/>
+            <GlutenFreeIcon glutenFree={elem.glutenFree}/>
             <p>{elem.title}</p>
            </Card>
         </Link>
